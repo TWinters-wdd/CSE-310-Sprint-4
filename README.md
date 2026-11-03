@@ -1,4 +1,4 @@
-# Project Title (Update)
+# AdaptArt
 
 Add a description of your project here.
 
