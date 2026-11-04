@@ -1,14 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+package com.zetcode
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+import java.awt.EventQueue
+import javax.swing.JFrame
+
+class SimpleEx(title: String) : JFrame() {
+    init {
+        createUI(title)
     }
+
+    private fun createUI(title: String) {
+        setTitle(title)
+
+        defaultCloseOperation = EXIT_ON_CLOSE
+        setSize(400, 300)
+        setLocationRelativeTo(null)
+    }
+}
+
+private fun createAndShowGUI() {
+    val frame = SimpleEx("Simple")
+    frame.isVisible = true
+}
+
+fun main() {
+    EventQueue.invokeLater(::createAndShowGUI)
 }
