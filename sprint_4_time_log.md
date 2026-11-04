@@ -27,7 +27,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |Date      |Category|Description                                                            |  Total Time |
 |----------|:------:|-----------------------------------------------------------------------|:-----------:|
 |11/02/2026|   IM   |Downloaded IntelliJ IDEA Community Edition, started w3schools tutorial.|    01:04    |
-|          |        |                                                                       |             |
+|11/03/2026|   IM   |w3schools Kotlin Tutorial Finished. Created basic Window GUI in Kotlin.|    01:11    |
 |          |        |                                                                       |             |
 |          |        |                                                                       |             |
 |          |        |                                                                       |             |
