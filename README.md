@@ -28,7 +28,7 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
+* [ZetCode](https://zetcode.com/kotlin/swing/)
 *
 *
 
@@ -39,3 +39,7 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [ ] First thing here
 * [ ]
 * [ ]
+
+## Attributions
+
+* 
