@@ -30,7 +30,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |11/03/2026|   IM   |w3schools Kotlin Tutorial Finished. Created basic Window GUI in Kotlin.|    01:11    |
 |11/04/2026|   TP   |Fixed Expo Go Dependency Errors. Phone can now display the map.        |    01:34    |
 |11/06/2026|   TP   |Brainstormed Treasure Ideas.                                           |    01:00    |
-|          |        |                                                                       |             |
+|11/09/2026|   IM   |Continued the ZetCode Tutorial                                         |    02:15    |
 |          |        |                                                                       |             |
 
 _Note: Add more rows as needed._
