@@ -1,5 +1,7 @@
 package painting
 
+import painting.ui.MenuBar;
+
 import java.awt.BasicStroke
 import java.awt.BorderLayout
 import java.awt.Color
@@ -19,6 +21,7 @@ import java.awt.geom.Ellipse2D
 import java.awt.geom.Line2D
 import java.awt.geom.Rectangle2D
 import java.awt.image.BufferedImage
+import java.util.concurrent.Flow
 import javax.swing.BorderFactory
 import javax.swing.JButton
 import javax.swing.JCheckBox
@@ -392,51 +395,75 @@ private fun showColorMenu(button: JButton, currentColor: Color, onSelected: (Col
 
 private fun createAndShowGUI() {
     val canvas = DrawingCanvas()
-    val toolSelector = JComboBox(DrawingTool.values()).apply {
-        toolTipText = "Choose a pencil, brush, pen, or shape tool"
-        selectedItem = DrawingTool.PENCIL
-        addActionListener { canvas.selectedTool = selectedItem as DrawingTool }
+
+    // Dropdown for brushes and freehand drawing tools.
+    val brushesPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
+        add(JComboBox(arrayOf("Pencil", "Brush", "Pen")).apply {
+            preferredSize = Dimension(130, 28)
+            toolTipText = "Choose a brush"
+            addActionListener {
+                canvas.selectedTool = when (selectedItem as String) {
+                    "Brush" -> DrawingTool.BRUSH
+                    "Pen" -> DrawingTool.PEN
+                    else -> DrawingTool.PENCIL
+                }
+                canvas.repaint()
+            }
+        })
     }
-    val colorButton = JButton("Color").apply {
-        preferredSize = Dimension(100, 32)
-        background = canvas.drawingColor
-        foreground = Color.WHITE
-        isFocusPainted = false
-        addActionListener { showColorMenu(this, canvas.drawingColor) { color ->
-            canvas.drawingColor = color
-            background = color
-            foreground = if (color.red + color.green + color.blue < 360) Color.WHITE else Color.DARK_GRAY
-        } }
+
+    // Dropdown for geometric shapes.
+    val shapesPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
+        add(JComboBox(arrayOf("Line", "Rectangle", "Oval")).apply {
+            preferredSize = Dimension(130, 28)
+            toolTipText = "Choose a shape"
+            addActionListener {
+                canvas.selectedTool = when (selectedItem as String) {
+                    "Rectangle" -> DrawingTool.RECTANGLE
+                    "Oval" -> DrawingTool.OVAL
+                    else -> DrawingTool.LINE
+                }
+                canvas.repaint()
+            }
+        })
     }
-    val sizeSlider = JSlider(1, 30, canvas.strokeWidth.toInt()).apply {
-        preferredSize = Dimension(130, 32)
-        toolTipText = "Brush and shape size"
-        addChangeListener { _: ChangeEvent -> canvas.strokeWidth = value.toFloat() }
+
+    // Dropdown for preset colors.
+    val colorOptions = linkedMapOf(
+        "Black" to Color.BLACK,
+        "White" to Color.WHITE,
+        "Red" to Color.RED,
+        "Orange" to Color.ORANGE,
+        "Yellow" to Color.YELLOW,
+        "Green" to Color.GREEN,
+        "Blue" to Color.BLUE,
+        "Purple" to Color.MAGENTA,
+        "Gray" to Color.GRAY
+    )
+    val colorsPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
+        add(JComboBox(colorOptions.keys.toTypedArray()).apply {
+            preferredSize = Dimension(130, 28)
+            toolTipText = "Choose a color"
+            addActionListener {
+                colorOptions[selectedItem as String]?.let { color ->
+                    canvas.drawingColor = color
+                    canvas.repaint()
+                }
+            }
+        })
     }
-    val fillCheckBox = JCheckBox("Fill shapes").apply {
-        toolTipText = "Fill rectangles and ovals"
-        addActionListener { canvas.fillShapes = isSelected }
-    }
-    val clearButton = JButton("Clear").apply {
-        addActionListener { canvas.clearCanvas() }
-    }
-    val controls = JPanel(FlowLayout(FlowLayout.LEFT, 8, 8)).apply {
-        background = Color(245, 247, 250)
-        border = BorderFactory.createEmptyBorder(2, 6, 2, 6)
-        add(JLabel("Tool:"))
-        add(toolSelector)
-        add(colorButton)
-        add(JLabel("Size:"))
-        add(sizeSlider)
-        add(fillCheckBox)
-        add(clearButton)
-    }
+
+    val menuBar = MenuBar(
+        brushesPanel = brushesPanel,
+        shapesPanel = shapesPanel,
+        colorsPanel = colorsPanel
+    )
 
     javax.swing.JFrame("AdaptArt - Kotlin Drawing Demo").apply {
         defaultCloseOperation = javax.swing.JFrame.EXIT_ON_CLOSE
         layout = BorderLayout(8, 8)
         contentPane.background = Color(235, 238, 243)
-        add(controls, BorderLayout.NORTH)
+        add(menuBar, BorderLayout.NORTH)
         add(canvas, BorderLayout.CENTER)
         pack()
         setLocationRelativeTo(null)
