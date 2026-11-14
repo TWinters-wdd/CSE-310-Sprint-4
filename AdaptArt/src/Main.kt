@@ -1,6 +1,11 @@
 package painting
 
-import painting.ui.MenuBar;
+import painting.ui.MenuBar
+import painting.canvas.DrawingCanvas
+import painting.model.DrawingState
+import painting.ui.BrushPanel
+import painting.ui.ColorPanel
+import painting.ui.ShapePanel
 
 import java.awt.BasicStroke
 import java.awt.BorderLayout
@@ -394,69 +399,13 @@ private fun showColorMenu(button: JButton, currentColor: Color, onSelected: (Col
 }
 
 private fun createAndShowGUI() {
-    val canvas = DrawingCanvas()
-
-    // Dropdown for brushes and freehand drawing tools.
-    val brushesPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
-        add(JComboBox(arrayOf("Pencil", "Brush", "Pen")).apply {
-            preferredSize = Dimension(130, 28)
-            toolTipText = "Choose a brush"
-            addActionListener {
-                canvas.selectedTool = when (selectedItem as String) {
-                    "Brush" -> DrawingTool.BRUSH
-                    "Pen" -> DrawingTool.PEN
-                    else -> DrawingTool.PENCIL
-                }
-                canvas.repaint()
-            }
-        })
-    }
-
-    // Dropdown for geometric shapes.
-    val shapesPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
-        add(JComboBox(arrayOf("Line", "Rectangle", "Oval")).apply {
-            preferredSize = Dimension(130, 28)
-            toolTipText = "Choose a shape"
-            addActionListener {
-                canvas.selectedTool = when (selectedItem as String) {
-                    "Rectangle" -> DrawingTool.RECTANGLE
-                    "Oval" -> DrawingTool.OVAL
-                    else -> DrawingTool.LINE
-                }
-                canvas.repaint()
-            }
-        })
-    }
-
-    // Dropdown for preset colors.
-    val colorOptions = linkedMapOf(
-        "Black" to Color.BLACK,
-        "White" to Color.WHITE,
-        "Red" to Color.RED,
-        "Orange" to Color.ORANGE,
-        "Yellow" to Color.YELLOW,
-        "Green" to Color.GREEN,
-        "Blue" to Color.BLUE,
-        "Purple" to Color.MAGENTA,
-        "Gray" to Color.GRAY
-    )
-    val colorsPanel = JPanel(FlowLayout(FlowLayout.CENTER, 4, 0)).apply {
-        add(JComboBox(colorOptions.keys.toTypedArray()).apply {
-            preferredSize = Dimension(130, 28)
-            toolTipText = "Choose a color"
-            addActionListener {
-                colorOptions[selectedItem as String]?.let { color ->
-                    canvas.drawingColor = color
-                    canvas.repaint()
-                }
-            }
-        })
-    }
+    val state = DrawingState()
+    val canvas = DrawingCanvas(state)
 
     val menuBar = MenuBar(
-        brushesPanel = brushesPanel,
-        shapesPanel = shapesPanel,
-        colorsPanel = colorsPanel
+        brushesPanel = BrushPanel(state),
+        shapesPanel = ShapePanel(state),
+        colorsPanel = ColorPanel(state)
     )
 
     javax.swing.JFrame("AdaptArt - Kotlin Drawing Demo").apply {
