@@ -33,8 +33,10 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |11/09/2026|   IM   |Continued the ZetCode Tutorial                                           |    02:15    |
 |11/11/2026|   IM   |Finished the ZetCode Tutorial. Generated basic drawing program with A.I  |    00:42    |
 |11/13/2026|   TP   |Fixed Expo Go Issues Again. Asked AI about updating the team's readme.   |    00:38    |
+|11/13/2026|   IM   |Worked with A.I. to improve the menu and display                         |    01:02    |
+|11/14/2026|   TP   |Added Basic Character Overlay to Map Tab                                 |    00:48    |
 |          |        |                                                                         |             |
-|          |        |                                                                         |             |
+
 
 _Note: Add more rows as needed._
 
