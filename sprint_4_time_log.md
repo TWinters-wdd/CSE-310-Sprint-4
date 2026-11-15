@@ -24,18 +24,18 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-|Date      |Category|Description                                                              |  Total Time |
-|----------|:------:|-------------------------------------------------------------------------|:-----------:|
-|11/02/2026|   IM   |Downloaded IntelliJ IDEA Community Edition, started w3schools tutorial.  |    01:04    |
-|11/03/2026|   IM   |w3schools Kotlin Tutorial Finished. Created basic Window GUI in Kotlin.  |    01:11    |
-|11/04/2026|   TP   |Fixed Expo Go Dependency Errors. Phone can now display the map.          |    01:34    |
-|11/06/2026|   TP   |Brainstormed Treasure Ideas.                                             |    01:00    |
-|11/09/2026|   IM   |Continued the ZetCode Tutorial                                           |    02:15    |
-|11/11/2026|   IM   |Finished the ZetCode Tutorial. Generated basic drawing program with A.I  |    00:42    |
-|11/13/2026|   TP   |Fixed Expo Go Issues Again. Asked AI about updating the team's readme.   |    00:38    |
-|11/13/2026|   IM   |Worked with A.I. to improve the menu and display                         |    01:02    |
-|11/14/2026|   TP   |Added Basic Character Overlay to Map Tab                                 |    00:48    |
-|          |        |                                                                         |             |
+|Date      |Category|Description                                                               |  Total Time |
+|----------|:------:|--------------------------------------------------------------------------|:-----------:|
+|11/02/2026|   IM   |Downloaded IntelliJ IDEA Community Edition, started w3schools tutorial.   |    01:04    |
+|11/03/2026|   IM   |w3schools Kotlin Tutorial Finished. Created basic Window GUI in Kotlin.   |    01:11    |
+|11/04/2026|   TP   |Fixed Expo Go Dependency Errors. Phone can now display the map.           |    01:34    |
+|11/06/2026|   TP   |Brainstormed Treasure Ideas.                                              |    01:00    |
+|11/09/2026|   IM   |Continued the ZetCode Tutorial                                            |    02:15    |
+|11/11/2026|   IM   |Finished the ZetCode Tutorial. Generated basic drawing program with A.I   |    00:42    |
+|11/13/2026|   TP   |Fixed Expo Go Issues Again. Asked AI about updating the team's readme.    |    00:38    |
+|11/13/2026|   IM   |Worked with A.I. to improve the menu and display                          |    01:02    |
+|11/14/2026|   TP   |Added Basic Character Overlay to Map Tab                                  |    00:48    |
+|11/14/2026|   IM   |Filled out the Individual Module Report. Made final touches to the program|    01:01    |
 
 
 _Note: Add more rows as needed._
@@ -44,7 +44,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       |Total Time (Hours:Minutes)|
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
-|TP - Team Project              |                          |
-|MTG - Class Meetings           |                          |
-|**TOTAL**                      |                          |
+|IM - Individual Module         |          07:15           |
+|TP - Team Project              |          04:00           |
+|MTG - Class Meetings           |          04:00           |
+|**TOTAL**                      |          15:15           |
